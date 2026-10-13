@@ -98,18 +98,19 @@ F(u,m)=\frac{u(N-u)}{N^2}\Big[(\eta_1u+N\eta_2)m
 -\delta\big(\eta_3u+N(d_0-b_0)\big)\Big],
 
 $$
+
 $$
 G(u,m)=\varepsilon\left(\frac{\beta u}{\alpha+u}-kNm\right),
 $$
 
 and
-
+$$
 \[
 \eta_1=a_1-a_0+b_0-b_1+c_0-c_1+d_1-d_0,\quad
 \eta_2=d_0-d_1+b_1-b_0,\quad
 \eta_3=b_0+c_0-a_0-d_0.
 \]
-
+$$
 **Important graph convention:** `L = A - D`, where `A` is adjacency and `D` is the diagonal degree matrix. Thus `L` has nonpositive eigenvalues for an undirected graph. The dispersion function plots their nonnegative magnitudes `|lambda|`. Do **not** substitute a positive-semidefinite Laplacian `D - A` without changing the diffusion convention accordingly.
 
 A positive growth rate on the continuous spectral envelope is not sufficient to establish classical Turing instability on a given finite network. The local equilibrium must be stable without diffusion, and at least one nonzero eigenmode of that actual network must have a positive linear growth rate. Diffusion-mediated selection of a heterogeneous steady state from an oscillatory regime is a distinct dynamical mechanism and need not meet the classical Turing precondition.
