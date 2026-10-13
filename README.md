@@ -85,18 +85,16 @@ Each network node represents a subpopulation with cooperator density `u_i` and p
 The implemented reaction-diffusion dynamics are
 
 $$
-
 \frac{du_i}{dt}=F(u_i,m_i)+d_u\sum_j L_{ij}u_j,
 \qquad
 \frac{dm_i}{dt}=G(u_i,m_i)+d_m\sum_j L_{ij}m_j,
-
 $$
+
 where
-$$
 
+$$
 F(u,m)=\frac{u(N-u)}{N^2}\Big[(\eta_1u+N\eta_2)m
 -\delta\big(\eta_3u+N(d_0-b_0)\big)\Big],
-
 $$
 
 $$
@@ -104,13 +102,13 @@ G(u,m)=\varepsilon\left(\frac{\beta u}{\alpha+u}-kNm\right),
 $$
 
 and
+
 $$
-\[
 \eta_1=a_1-a_0+b_0-b_1+c_0-c_1+d_1-d_0,\quad
 \eta_2=d_0-d_1+b_1-b_0,\quad
 \eta_3=b_0+c_0-a_0-d_0.
-\]
 $$
+
 **Important graph convention:** `L = A - D`, where `A` is adjacency and `D` is the diagonal degree matrix. Thus `L` has nonpositive eigenvalues for an undirected graph. The dispersion function plots their nonnegative magnitudes `|lambda|`. Do **not** substitute a positive-semidefinite Laplacian `D - A` without changing the diffusion convention accordingly.
 
 A positive growth rate on the continuous spectral envelope is not sufficient to establish classical Turing instability on a given finite network. The local equilibrium must be stable without diffusion, and at least one nonzero eigenmode of that actual network must have a positive linear growth rate. Diffusion-mediated selection of a heterogeneous steady state from an oscillatory regime is a distinct dynamical mechanism and need not meet the classical Turing precondition.
@@ -343,7 +341,3 @@ Both stages keep the **same** diffusion coefficients. Do not interpret this expe
 - **Known graph-helper limitations in the supplied source:** `func_SaveSortNetData_Repeat.m` reconstructs its `A` output with `A = L - diag(L)` rather than `A = L - diag(diag(L))`; review/correct this line before treating the saved `A` as an adjacency matrix. `LAnetwork_Customizable.m` uses `unique(rpn, 'row')`; if MATLAB rejects this option, use the documented `'rows'` option instead. These two lines have not been silently changed in this package.
 - No automated unit/regression tests, reference network matrices, or checksum-verified benchmark trajectories are supplied. For archival reproducibility, publishing the graph realizations and seeds used for manuscript figures is recommended.
 - The included scripts do not automatically perform systematic parameter sweeps, statistical ensemble aggregation, or figure-by-figure reproduction for the full manuscript. Those analyses require additional driver scripts and/or recorded configurations when applicable.
-
-## 9. Citation and reuse
-
-If using this implementation in research, cite the associated article after publication and link this repository to the article's **Data Accessibility / Code Availability** statement. Add the final bibliographic details and DOI when available. Licensing terms have not been specified in this code package; add an explicit `LICENSE` file before publishing if public reuse permissions are intended.
